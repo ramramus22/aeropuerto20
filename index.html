@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroTeam | Pasión por la Aviación</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Variables de colores */
+        :root {
+            --primary-blue: #0A2342;
+            --accent-blue: #2CA58D;
+            --light-gray: #F4F7F6;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+        }
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navegación */
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Sección Hero */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(10, 35, 66, 0.7), rgba(10, 35, 66, 0.7)), 
+                        url('https://i.ibb.co/Wvrgxjcr/471510241-10162458013579791-7646299864820740134-n.jpg') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            background-color: var(--accent-blue);
+            color: var(--white);
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #21826f;
+            transform: translateY(-3px);
+        }
+
+        /* Secciones Generales */
+        section {
+            padding: 80px 10%;
+        }
+
+        h2.section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2.section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            margin: 10px auto 0;
+        }
+
+        /* Sobre Nosotros */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Nuestra Flota (Tarjetas) */
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+        }
+
+        .card-content i {
+            color: var(--accent-blue);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Aeropuertos */
+        .airports {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .airports .section-title {
+            color: var(--white);
+        }
+
+        .airports-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .airport-item {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .airport-item i {
+            font-size: 3rem;
+            color: var(--accent-blue);
+            margin-bottom: 15px;
+        }
+
+        /* Contacto */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #051324;
+            color: var(--white);
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none; /* Simplificado para móviles en este ejemplo */
+            }
+            .hero h1 { font-size: 2.5rem; }
+            .about-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cabecera y Navegación -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-plane"></i> AeroTeam
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">El Equipo</a></li>
+                <li><a href="#flota">Nuestra Flota</a></li>
+                <li><a href="#aeropuertos">Bases Operativas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section id="inicio" class="hero">
+        <h1>Dominamos los Cielos</h1>
+        <p>Somos un equipo de élite apasionado por la aviación, los aviones y la adrenalina del vuelo.</p>
+        <a href="#contacto" class="btn">Únete al Escuadrón</a>
+    </section>
+
+    <!-- Sección Nosotros -->
+    <section id="nosotros">
+        <h2 class="section-title">El Equipo</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p><strong>AeroTeam</strong> no es solo un aeroclub, es una hermandad de aviadores. Fundados en 2010, reunimos a pilotos comerciales, militares y civiles con un objetivo común: mantener viva la verdadera pasión por el vuelo.</p>
+                <p>Nuestros comandantes y primeros oficiales acumulan más de 50,000 horas de vuelo combinadas. Desde la instrucción de vuelo básico hasta maniobras avanzadas, representamos el profesionalismo en la pista y en el aire.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1541480112702-0c98ecf0dcb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80" alt="Pilotos caminando por la pista">
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Flota -->
+    <section id="flota" style="background-color: #e8ecef;">
+        <h2 class="section-title">Nuestra Flota</h2>
+        <div class="fleet-grid">
+            <!-- Avión 1 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1583416750470-965b2707b355?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Cessna 172">
+                <div class="card-content">
+                    <i class="fas fa-paper-plane"></i>
+                    <h3>Cessna 172 Skyhawk</h3>
+                    <p>El pilar de nuestra academia. Fiable y perfecto para la instrucción VFR e IFR de nuestros cadetes.</p>
+                </div>
+            </div>
+            <!-- Avión 2 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1540962351504-03099e0a754b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Jet Privado">
+                <div class="card-content">
+                    <i class="fas fa-plane-departure"></i>
+                    <h3>Gulfstream G650</h3>
+                    <p>La joya de la corona. Usado por nuestros pilotos ejecutivos para vuelos chárter de largo alcance.</p>
+                </div>
+            </div>
+            <!-- Avión 3 -->
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1610486790906-f61453ab4985?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80" alt="Avion Acrobatico">
+                <div class="card-content">
+                    <i class="fas fa-fighter-jet"></i>
+                    <h3>Extra 330SC</h3>
+                    <p>Nuestra bestia acrobática. Utilizado por el escuadrón de exhibición en festivales aéreos internacionales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Aeropuertos -->
+    <section id="aeropuertos" class="airports">
+        <h2 class="section-title">Nuestras Bases y Aeropuertos</h2>
+        <div class="airports-container">
+            <div class="airport-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Base Central</h3>
+                <p>Aeropuerto Internacional El Dorado (SKBO)<br>Hangar 4, Pista Sur.</p>
+            </div>
+            <div class="airport-item">
+                <i class="fas fa-broadcast-tower"></i>
+                <h3>Pista de Entrenamiento</h3>
+                <p>Aeródromo Los Halcones<br>Espacio aéreo no controlado (Clase G).</p>
+            </div>
+            <div class="airport-item">
+                <i class="fas fa-globe-americas"></i>
+                <h3>Operaciones Globales</h3>
+                <p>Rutas activas en más de 15 países con soporte de FBO internacional.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <h2 class="section-title">Comunícate con la Torre</h2>
+        <div class="contact-form">
+            <form action="#">
+                <div class="form-group">
+                    <input type="text" placeholder="Nombre completo o Callsign" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" placeholder="Correo Electrónico" required>
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="¿Cuál es tu plan de vuelo? (Mensaje)" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Enviar Plan de Vuelo <i class="fas fa-paper-plane"></i></button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>&copy; 2023 AeroTeam Aviadores. Todos los derechos reservados.</p>
+        <p style="margin-top: 10px; font-size: 1.2rem;">
+            <i class="fab fa-instagram" style="margin: 0 10px; cursor: pointer;"></i>
+            <i class="fab fa-facebook" style="margin: 0 10px; cursor: pointer;"></i>
+            <i class="fab fa-twitter" style="margin: 0 10px; cursor: pointer;"></i>
+        </p>
+    </footer>
+
+</body>
+</html>
